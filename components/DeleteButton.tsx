@@ -1,12 +1,12 @@
 import MySwal, { warningAlert } from "@/lib/sweetAlert";
 
 interface DeleteButtonProps {
-    id: number;
-    handleDelete: (id: number) => void;
+    id: string;
+    handleDelete: (id: string) => void;
 };
 
 export default function DeleteButton({ id, handleDelete }:  DeleteButtonProps) {
-    const deleteConfirm = (id: number) => {
+    const deleteConfirm = (id: string) => {
         warningAlert({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this data!",

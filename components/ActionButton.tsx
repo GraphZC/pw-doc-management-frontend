@@ -1,8 +1,8 @@
 import DeleteButton from "./DeleteButton";
 
 interface ActionButtonProps {
-    id: number;
-    handleDelete: (id: number) => void;
+    id: string;
+    handleDelete: (id: string) => void;
 }
 
 export default function ActionButton({
