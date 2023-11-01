@@ -9,14 +9,13 @@ export default function CustomerPage() {
     if(isPending) return <div>Loading...</div>;
 
     if(error) return <div>{error.message}</div>;
-    console.log(data);
 
     return(
         <>
             <PageHeader title= "Customer" />
             <div className="mb-5 flex w-full justify-end">
             </div>
-            {/* <CustomerDataTable data={data}/> */}
+            <CustomerDataTable data={data}/>
         </>
     )
 }

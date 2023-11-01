@@ -7,10 +7,11 @@ import customerQueryKeys from "./customerQueryKeys";
 const getAllCustomers = async() =>{
     const session = await getSession();
 
-    const{data} = await axios.get<Customer[]>("/customer", {
+    const{data} = await axios.get<Customer[]>("/customer/", {
         headers: {
             Authorization: `Bearer ${session?.accessToken}`,
-        }
+        },
+
     });
     return data;
 };
