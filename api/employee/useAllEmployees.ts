@@ -4,7 +4,7 @@ import axios from "@/lib/axios.config";
 import { getSession } from "next-auth/react"
 import employeeQueryKeys from "./employeeQueryKeys";
 
-const getAllCustomers = async() =>{
+const getAllEmployees = async() =>{
     const session = await getSession();
 
     const{data} = await axios.get<Employee[]>("/employee/", {
@@ -16,10 +16,10 @@ const getAllCustomers = async() =>{
     return data;
 };
 
-const useCustomer = () =>{
+const useEmployee = () =>{
     return useQuery({
         queryKey: employeeQueryKeys.all,
-        queryFn: getAllCustomers,
+        queryFn: getAllEmployees,
     })
 };
-export default useCustomer;
+export default useEmployee;

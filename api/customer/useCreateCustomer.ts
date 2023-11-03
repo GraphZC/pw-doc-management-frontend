@@ -4,30 +4,37 @@ import { QueryClient, useMutation } from "@tanstack/react-query";
 import { getSession } from "next-auth/react";
 import customerQueryKeys from "./customerQueryKeys";
 
-const createCustomer  = async (newData: Customer) =>{
+const createCustomer = async (newCustomer: Customer) => {
     const session = await getSession();
-    const {data} = await axios.post<Customer>("/customer/", newData, {
+
+    const { data, status } = await axios.post<Customer>("/customer/", newCustomer, {
         headers: {
             // Authorization: `Bearer ${session?.accessToken}`,
-        },
+        }
     });
 
     return data;
 };
 
-const useCreateCustomer = () =>{
-    const querClient = new QueryClient();
+const useCreateCustomer = () => {
+    const queryClient = new QueryClient();
 
     return useMutation({
         mutationFn: createCustomer,
-        onMutate: async (data) =>{
-            await querClient.cancelQueries({
+        onMutate: async () => {
+            await queryClient.cancelQueries({
                 queryKey: customerQueryKeys.all
             });
-            querClient.setQueryData(customerQueryKeys.all, (oldData: Customer[] | undefined) =>{
+        },
+        onSuccess: async (data) => {
+            await queryClient.cancelQueries({
+                queryKey: customerQueryKeys.all
+            });
+            queryClient.setQueryData(customerQueryKeys.all, (oldData: Customer[] | undefined) => {
                 return [...oldData!, data];
             });
         },
     });
 }
+
 export default useCreateCustomer;

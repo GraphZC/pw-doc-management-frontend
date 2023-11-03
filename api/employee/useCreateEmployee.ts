@@ -4,30 +4,37 @@ import { QueryClient, useMutation } from "@tanstack/react-query";
 import { getSession } from "next-auth/react";
 import employeeQueryKeys from "./employeeQueryKeys";
 
-const createEmployee = async (newData: Employee) =>{
+const createEmployee = async (newEmployee: Employee) => {
     const session = await getSession();
-    const {data} = await axios.post<Employee>("/employee/", newData, {
+
+    const { data, status } = await axios.post<Employee>("/employee/", newEmployee, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
-        },
+            Authorization: `Bearer ${session?.accessToken}`,
+        }
     });
 
     return data;
 };
 
-const useCreateCustomer = () =>{
-    const querClient = new QueryClient();
+const useCreateEmployee = () => {
+    const queryClient = new QueryClient();
 
     return useMutation({
         mutationFn: createEmployee,
-        onMutate: async (data) =>{
-            await querClient.cancelQueries({
+        onMutate: async () => {
+            await queryClient.cancelQueries({
                 queryKey: employeeQueryKeys.all
             });
-            querClient.setQueryData(employeeQueryKeys.all, (oldData: Employee[] | undefined) =>{
+        },
+        onSuccess: async (data) => {
+            await queryClient.cancelQueries({
+                queryKey: employeeQueryKeys.all
+            });
+            queryClient.setQueryData(employeeQueryKeys.all, (oldData: Employee[] | undefined) => {
                 return [...oldData!, data];
             });
         },
     });
 }
-export default useCreateCustomer;
+
+export default useCreateEmployee;

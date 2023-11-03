@@ -1,6 +1,7 @@
 import { Employee } from "@/interface/employee";
 import { TableColumn } from "react-data-table-component";
 import DataTable from "../DataTable";
+import ActionButton from "../ActionButton";
 
 export default function EmployeeDataTable({data} : {data: Employee[]}){
     const columns: TableColumn<Employee>[] = [
@@ -20,7 +21,8 @@ export default function EmployeeDataTable({data} : {data: Employee[]}){
             sortable: true,
         },
         {
-            name: 'Action'
+            name: 'Action',
+            cell: (row: Employee) => <ActionButton id={row.id!.toString()} handleDelete={handleDelete}/>,
         }
     ];
     return(
@@ -29,4 +31,8 @@ export default function EmployeeDataTable({data} : {data: Employee[]}){
             data = {data}
         />
     )
+}
+
+function handleDelete(id: string): void {
+    throw new Error("Function not implemented.");
 }
