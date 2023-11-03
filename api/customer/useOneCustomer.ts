@@ -16,11 +16,11 @@ const getOneCustomer = async (id: string) => {
     return data;
 };
 
-const useCustomer = (id: string) => {
+const useOneCustomer = (id: string) => {
     return useQuery({
         queryKey: customerQueryKeys.detial(id),
         queryFn: () => getOneCustomer(id),
     })
 };
 
-export default useCustomer;
+export default useOneCustomer;

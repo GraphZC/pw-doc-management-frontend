@@ -9,7 +9,7 @@ const createProduct = async (newProduct: Product) => {
 
     const { data, status } = await axios.post<Product>("/product/", newProduct, {
         headers: {
-            Authorization: `Bearer ${session?.accessToken}`,
+            // Authorization: `Bearer ${session?.accessToken}`,
         }
     });
 

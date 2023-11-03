@@ -1,23 +1,29 @@
 'use client'
 
-import { Customer } from "@/interface/customer";
-import { useEffect } from "react";
+import { Customer } from "@/interface/customer"
 import { useForm } from "react-hook-form";
 
-interface CreateCustomerFormProps {
-    handleCreate: (data: Customer) => void;
+interface EditCustomerFormProps {
+    data: Customer;
+    handleUpdate: (data: Customer) => void;
 }
 
-export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormProps) {
-    const {register, handleSubmit, reset, formState} = useForm<Customer>();
-    useEffect(() => {
-        if(formState.isSubmitSuccessful){
-            reset();
-        }
-    },[formState, reset])
+export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFormProps) {
+    const {register, handleSubmit } = useForm<Customer>({defaultValues: data});
     return (
         <div>
-            <form onSubmit={handleSubmit(handleCreate)}>
+            <form onSubmit={handleSubmit(handleUpdate)}>
+                <div className="mb-2">
+                    <label htmlFor="id">ID</label>
+                    <input
+                    type="text"
+                    id="id"
+                    className="input-primary"
+                    required={true}
+                    {...register('id')}
+                    readOnly
+                    />
+                </div>
                 <div className="mb-2">
                     <label htmlFor="name">Name</label>
                     <input
@@ -59,7 +65,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
                     />
                 </div>
                 <div className="mt-4">
-                    <button className="submit-button">Create</button>
+                    <button className="submit-button">Edit</button>
                 </div>
             </form>
         </div>
