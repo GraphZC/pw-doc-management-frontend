@@ -2,6 +2,7 @@
 
 import { Customer } from "@/interface/customer"
 import { useForm } from "react-hook-form";
+import SubmitButton from "../SubmitButton";
 
 interface EditCustomerFormProps {
     data: Customer;
@@ -25,7 +26,7 @@ export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFor
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">ชื่อ</label>
                     <input
                     type="text"
                     id="name"
@@ -35,7 +36,7 @@ export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFor
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address">ที่อยู่</label>
                     <input
                     type="text"
                     id="address"
@@ -45,7 +46,7 @@ export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFor
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="telephone">Telephone</label>
+                    <label htmlFor="telephone">เบอร์โทรศัพท์</label>
                     <input
                     type="text"
                     id="telephone"
@@ -55,7 +56,7 @@ export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFor
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="taxId">TaxId</label>
+                    <label htmlFor="taxId">เลขประจำตัวผู้เสียภาษี</label>
                     <input
                     type="text"
                     id="taxId"
@@ -65,7 +66,7 @@ export default function EditCustomerForm({ data, handleUpdate }: EditCustomerFor
                     />
                 </div>
                 <div className="mt-4">
-                    <button className="submit-button">Edit</button>
+                    <SubmitButton text="แก้ไข" />
                 </div>
             </form>
         </div>

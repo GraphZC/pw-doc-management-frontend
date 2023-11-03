@@ -21,7 +21,7 @@ export default function ViewProductPage({params} : {params: {id: string}}) {
     return (
         <div>
             <BackButton url="/product" />
-            <PageHeader title="Edit Product" />
+            <PageHeader title="แก้ไขสินค้า" />
             <EditProductForm 
             handleUpdate={handleUpdate} 
             data={data}

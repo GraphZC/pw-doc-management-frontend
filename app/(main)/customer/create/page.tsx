@@ -16,7 +16,7 @@ export default function CreateCustomerPage() {
     return (
         <div>
             <BackButton url="/customer" />
-            <PageHeader title="Create Customer" />
+            <PageHeader title="สร้างลูกค้า" />
             <CreateCustomerForm handleCreate={handleCreate} />
         </div>
     );

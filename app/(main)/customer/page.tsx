@@ -1,6 +1,7 @@
 'use client'
 
 import useCustomer from "@/api/customer/useAllCustomers"
+import CreateButton from "@/components/CreateButton";
 import PageHeader from "@/components/PageHeader";
 import CustomerDataTable from "@/components/customer/CustomerDataTable";
 import Link from "next/link";
@@ -13,9 +14,9 @@ export default function CustomerPage() {
 
     return(
         <>
-            <PageHeader title= "Customer" />
+            <PageHeader title= "ลูกค้า" />
             <div className="mb-5 flex w-full justify-end">
-                <Link href="/customer/create" className ="bg-blue-500 text-white px-4 py-2 rounded-lg inline-block" >+Create</Link>
+                <CreateButton url="/customer/create" />
             </div>
             <CustomerDataTable data={data}/>
         </>

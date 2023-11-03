@@ -12,7 +12,7 @@ export default function BackButton({ url }: BackButtonProps) {
             href={url}
             className="text-blue-600 mb-2 inline-block hover:underline"
         >
-            &#60; Back
+            &#60;  ย้อนกลับ
         </Link>
     )
 

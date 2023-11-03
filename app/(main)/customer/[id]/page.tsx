@@ -21,7 +21,7 @@ export default function ViewCustomerPage({params} : {params: {id: string}}) {
     return (
         <div>
             <BackButton url="/customer" />
-            <PageHeader title="Edit Customer" />
+            <PageHeader title="แก้ไขลูกค้า" />
             <EditCustomerForm 
             handleUpdate={handleUpdate} 
             data={data}

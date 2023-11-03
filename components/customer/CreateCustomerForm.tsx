@@ -3,6 +3,7 @@
 import { Customer } from "@/interface/customer";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import SubmitButton from "../SubmitButton";
 
 interface CreateCustomerFormProps {
     handleCreate: (data: Customer) => void;
@@ -19,7 +20,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
         <div>
             <form onSubmit={handleSubmit(handleCreate)}>
                 <div className="mb-2">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">ชื่อ</label>
                     <input
                     type="text"
                     id="name"
@@ -29,7 +30,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address">ที่อยู่</label>
                     <input
                     type="text"
                     id="address"
@@ -39,7 +40,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="telephone">Telephone</label>
+                    <label htmlFor="telephone">เบอร์โทรศัพท์</label>
                     <input
                     type="text"
                     id="telephone"
@@ -49,7 +50,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="taxId">TaxId</label>
+                    <label htmlFor="taxId">เลขประจำตัวผู้เสียภาษี</label>
                     <input
                     type="text"
                     id="taxId"
@@ -59,7 +60,7 @@ export default function CreateCustomerForm({ handleCreate }: CreateCustomerFormP
                     />
                 </div>
                 <div className="mt-4">
-                    <button className="submit-button">Create</button>
+                    <SubmitButton text="สร้าง" />
                 </div>
             </form>
         </div>

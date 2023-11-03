@@ -3,6 +3,7 @@
 import { Product } from "@/interface/product";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import SubmitButton from "../SubmitButton";
 
 interface CreateProductFormProps {
     handleCreate: (data: Product) => void;
@@ -19,7 +20,7 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
         <div>
             <form onSubmit={handleSubmit(handleCreate)}>
                 <div className="mb-2">
-                    <label htmlFor="code">Code</label>
+                    <label htmlFor="code">รหัสสินค้า</label>
                     <input
                     type="text"
                     id="code"
@@ -29,7 +30,7 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">ชื่อ</label>
                     <input
                     type="text"
                     id="name"
@@ -39,9 +40,8 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="description">Description</label>
-                    <input
-                    type="text"
+                    <label htmlFor="description">คำอธิบาย</label>
+                    <textarea
                     id="description"
                     className="input-primary"
                     required={true}
@@ -49,7 +49,7 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
                     />
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="price">Price</label>
+                    <label htmlFor="price">ราคา</label>
                     <input
                     type="number"
                     min={0}
@@ -60,7 +60,7 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
                     />
                 </div>               
                 <div className="mb-2">
-                    <label htmlFor="unit">Unit</label>
+                    <label htmlFor="unit">หน่วย</label>
                     <input
                     type="text"
                     id="unit"
@@ -70,7 +70,7 @@ export default function CreateProductForm({ handleCreate }: CreateProductFormPro
                     />
                 </div>
                 <div className="mt-4">
-                    <button className="submit-button">Create</button>
+                    <SubmitButton   text="สร้าง" />
                 </div>
             </form>
         </div>

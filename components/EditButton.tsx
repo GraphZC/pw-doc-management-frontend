@@ -9,7 +9,7 @@ export default function DeleteButton({ id, handleEdit }:  EditButtonProps ) {
             className="bg-yellow-300 px-2 py-1 rounded-lg text-white"
             onClick={() => handleEdit(id)}
         >
-            Edit
+           แก้ไข 
         </button>
     )
 

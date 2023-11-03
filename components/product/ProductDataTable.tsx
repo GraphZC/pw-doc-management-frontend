@@ -17,32 +17,32 @@ export default function ProductDataTable({data} : {data: Product[]}){
     }
     const columns: TableColumn<Product>[] = [ 
         {
-            name: 'Code',
+            name: 'ID',
+            selector: (row: Product) => row.id!,
+            sortable: true,
+        },
+        {
+            name: 'รหัสสินค้า',
             selector: (row: Product) => row.code!,
             sortable: true,
         },
         {
-            name: 'Name',
+            name: 'ชื่อ',
             selector: (row: Product) => row.name!,
             sortable: true,
         },
         {
-            name: 'Description',
+            name: 'คำอธิบาย',
             selector: (row: Product) => row.description!,
             sortable: true,
         },
         {
-            name: 'Price',
+            name: 'ราคา',
             selector: (row: Product) => row.price!,
             sortable: true,
         },
         {
-            name: 'Unit',
-            selector: (row: Product) => row.unit!,
-            sortable: true,
-        },
-        {
-            name: 'Action',
+            name: '',
             cell: (row: Product) => <ActionButton id={row.id!} handleDelete={handleDelete} handleEdit={handleEdit}/>
         },
     ];

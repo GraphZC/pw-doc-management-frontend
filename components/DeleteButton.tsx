@@ -21,7 +21,7 @@ export default function DeleteButton({ id, handleDelete }:  DeleteButtonProps) {
             className="bg-red-500 px-2 py-1 rounded-lg text-white"
             onClick={() => deleteConfirm(id)}
         >
-            Delete
+           ลบ
         </button>
     )
 

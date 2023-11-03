@@ -16,7 +16,7 @@ export default function CreateProductPage() {
     return (
         <div>
             <BackButton url="/product" />
-            <PageHeader title="Create Product" />
+            <PageHeader title="สร้างสินค้า" />
             <CreateProductForm handleCreate={handleCreate} />
         </div>
     );

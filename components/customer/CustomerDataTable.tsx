@@ -22,17 +22,17 @@ export default function CustomerDataTable({data} : {data: Customer[]}){
             sortable: true,
         },
         {
-            name: 'Name',
+            name: 'ชื่อ',
             selector: (row: Customer) => row.name!,
             sortable: true,
         },
         {
-            name: 'Telephone',
+            name: 'เบอร์โทรศัพท์',
             selector: (row: Customer) => row.telephone!,
             sortable: true,
         },
         {
-            name: 'Action',
+            name: '',
             cell: (row: Customer) => <ActionButton id={row.id!} handleDelete={handleDelete} handleEdit={handleEdit}/>
         },
     ];
