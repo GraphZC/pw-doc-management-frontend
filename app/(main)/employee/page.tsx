@@ -1,9 +1,9 @@
 'use client'
 
 import useEmployee from "@/api/employee/useAllEmployees";
+import CreateButton from "@/components/CreateButton";
 import PageHeader from "@/components/PageHeader";
 import EmployeeDataTable from "@/components/employee/EmployeeDataTable";
-import Link from "next/link"
 export default function EmployeePage(){
     const {isPending, error, data} = useEmployee();
  
@@ -13,8 +13,9 @@ export default function EmployeePage(){
 
     return(
         <>
-            <PageHeader title = "Employee" />
+            <PageHeader title = "พนักงาน" />
             <div className="mb-5 flex w-full justify-end">
+                <CreateButton url="/employee/create" />
             </div>
             <EmployeeDataTable data={data}/>
         </>

@@ -16,11 +16,11 @@ const getOneEmployee = async (id: string) => {
     return data;
 };
 
-const useEmployee = (id: string) => {
+const useOneEmployee = (id: string) => {
     return useQuery({
         queryKey: employeeQueryKeys.detail(id),
         queryFn: () => getOneEmployee(id),
     })
 };
 
-export default useEmployee;
+export default useOneEmployee;

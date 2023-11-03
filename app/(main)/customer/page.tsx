@@ -4,7 +4,6 @@ import useCustomer from "@/api/customer/useAllCustomers"
 import CreateButton from "@/components/CreateButton";
 import PageHeader from "@/components/PageHeader";
 import CustomerDataTable from "@/components/customer/CustomerDataTable";
-import Link from "next/link";
 export default function CustomerPage() {
     const {isPending, error, data} = useCustomer();
     

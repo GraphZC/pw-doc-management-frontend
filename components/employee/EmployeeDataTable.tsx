@@ -2,8 +2,19 @@ import { Employee } from "@/interface/employee";
 import { TableColumn } from "react-data-table-component";
 import DataTable from "../DataTable";
 import ActionButton from "../ActionButton";
+import useDeleteCustomer from "@/api/customer/useDeleteCustomer";
+import { useRouter } from "next/navigation";
 
 export default function EmployeeDataTable({data} : {data: Employee[]}){
+    const deleteMutation = useDeleteCustomer();
+    const router = useRouter();
+
+    const handleDelete = (id: string) => {
+        deleteMutation.mutateAsync(id);
+    }
+    const handleEdit = (id: string) => {
+        router.push(`/customer/${id}`)
+    }
     const columns: TableColumn<Employee>[] = [
         {
             name: 'ID',
@@ -11,18 +22,18 @@ export default function EmployeeDataTable({data} : {data: Employee[]}){
             sortable: true,
         },
         {
-            name: 'Name',
+            name: 'ชื่อ',
             selector: (row: Employee) => row.name!,
             sortable: true,
         },
         {
-            name: 'Roles',
+            name: 'ตำแหน่ง',
             selector: (row: Employee) => row.roles!,
             sortable: true,
         },
         {
-            name: 'Action',
-            cell: (row: Employee) => <ActionButton id={row.id!.toString()} handleDelete={handleDelete}/>,
+            name: '',
+            cell: (row: Employee) => <ActionButton id={row.id!.toString()} handleDelete={handleDelete} handleEdit={handleEdit}/>,
         }
     ];
     return(
