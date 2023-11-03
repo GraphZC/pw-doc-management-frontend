@@ -1,6 +1,6 @@
 'use client'
 
-import useCustomer from "@/api/customer/useCustomer"
+import useCustomer from "@/api/customer/useAllCustomers"
 import PageHeader from "@/components/PageHeader";
 import CustomerDataTable from "@/components/customer/CustomerDataTable";
 export default function CustomerPage() {

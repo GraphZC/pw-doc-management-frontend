@@ -1,6 +1,6 @@
 const customerQueryKeys = {
     all: ['customer'],
-    detial: (id: number) => [...customerQueryKeys.all, id],
+    detial: (id: string) => [...customerQueryKeys.all, id],
 
 }
 

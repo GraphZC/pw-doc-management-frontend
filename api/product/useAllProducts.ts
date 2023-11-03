@@ -1,15 +1,15 @@
-import { Customer } from "@/interface/customer";
+import { Product } from "@/interface/product";
 import { useQuery } from "@tanstack/react-query";
 import axios from "@/lib/axios.config";
 import { getSession } from "next-auth/react"
-import customerQueryKeys from "./customerQueryKeys";
+import productQueryKeys from "./productQueryKeys";
 
 const getAllCustomers = async() =>{
     const session = await getSession();
 
-    const{data} = await axios.get<Customer[]>("/customer/", {
+    const{data} = await axios.get<Product[]>("/product/", {
         headers: {
-            Authorization: `Bearer ${session?.accessToken}`,
+            // Authorization: `Bearer ${session?.accessToken}`,
         },
 
     });
@@ -18,7 +18,7 @@ const getAllCustomers = async() =>{
 
 const useCustomer = () =>{
     return useQuery({
-        queryKey: customerQueryKeys.all,
+        queryKey: productQueryKeys.all,
         queryFn: getAllCustomers,
     })
 };
