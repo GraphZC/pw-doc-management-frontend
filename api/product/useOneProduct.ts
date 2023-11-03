@@ -16,12 +16,12 @@ const getOneProduct = async (id: string) => {
     return data;
 };
 
-const useProduct = (id: string) => {
+const useOneProduct = (id: string) => {
     return useQuery({
         queryKey: productQueryKeys.detail(id),
         queryFn: () => getOneProduct(id),
     })
 };
 
-export default useProduct;
+export default useOneProduct;
 
