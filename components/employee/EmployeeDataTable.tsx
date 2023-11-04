@@ -4,16 +4,17 @@ import DataTable from "../DataTable";
 import ActionButton from "../ActionButton";
 import useDeleteCustomer from "@/api/customer/useDeleteCustomer";
 import { useRouter } from "next/navigation";
+import useDeleteEmployee from "@/api/employee/useDeleteEmployee";
 
 export default function EmployeeDataTable({data} : {data: Employee[]}){
-    const deleteMutation = useDeleteCustomer();
+    const deleteMutation = useDeleteEmployee();
     const router = useRouter();
 
     const handleDelete = (id: string) => {
         deleteMutation.mutateAsync(id);
     }
     const handleEdit = (id: string) => {
-        router.push(`/customer/${id}`)
+        router.push(`/employee/${id}`)
     }
     const columns: TableColumn<Employee>[] = [
         {

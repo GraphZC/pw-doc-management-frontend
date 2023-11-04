@@ -11,7 +11,8 @@ interface CreateEmployeeFormProps {
 }
 
 export default function CreateEmployeeForm({ handleCreate }: CreateEmployeeFormProps) {
-    const {register, handleSubmit, reset, formState, watch} = useForm<Employee>();
+    const {register, handleSubmit, reset, watch, formState} = useForm<Employee>();
+
     useEffect(() => {
         if(formState.isSubmitSuccessful){
             reset();

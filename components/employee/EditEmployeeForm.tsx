@@ -3,6 +3,8 @@
 import { Employee } from "@/interface/createEmployee"
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
+import { watch } from "fs";
+import { get } from "http";
 
 interface EditEmployeeFormProps {
     data: Employee;
@@ -69,7 +71,7 @@ export default function EditEmployeeForm({ data, handleUpdate }: EditEmployeeFor
                 <div className="mb-2">
                     <label htmlFor="confirm_password">confirm password</label>
                     <input
-                    type="pasword"
+                    type="password"
                     id="confirm_password"
                     className="input-primary"
                     required={true}
