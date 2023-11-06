@@ -16,7 +16,7 @@ export default function CreateEmployeePage() {
     return (
         <div>
             <BackButton url="/employee" />
-            <PageHeader title="สร้างสินค้า" />
+            <PageHeader title="เพิ่มพนักงาน" />
             <CreateEmployeeForm handleCreate={handleCreate} />
         </div>
     );
