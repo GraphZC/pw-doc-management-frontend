@@ -4,7 +4,6 @@ import { Employee } from "@/interface/createEmployee";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
-import { watch } from "fs";
 
 interface CreateEmployeeFormProps {
     handleCreate: (data: Employee) => void;
