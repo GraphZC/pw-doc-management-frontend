@@ -1,5 +1,13 @@
 # Poolworld Document Management System
 
+## สมาชิก
+1. 6410401078 นายธนฤกษ์ โอเจริญ 
+2. 6410402121 ภูริต เทพกฤษณ์
+3. 6410406568 ณัชพล เรืองนาม
+4. 6410406771 ปัณณทัต ด้วงแค
+5. 6410406703 นภสมล ศิริบรรจง
+6. 6410406878 ศรันย์ภวัต โพธิ์สร้อย
+
 ## Getting Started
 
 First, set up your environment variables. You can copy the `.env.example` file to `.env.local` and fill in the values.

@@ -48,6 +48,11 @@ export default function Navbar() {
                 <Profile name={session?.user?.name} role={session?.user?.role} />
             </div>
             <NavbarItem href="/dashboard" text="Dashboard" currentPath={pathname} />
+            <NavbarItem href="/employee" text="พนักงาน" currentPath={pathname} />
+            <NavbarItem href="/customer" text="ลูกค้า" currentPath={pathname} />
+            <NavbarItem href="/product" text="สินค้า" currentPath={pathname} />
+            <NavbarItem href="/poolcare" text="ใบดูแลสระ" currentPath={pathname} />
+            <NavbarItem href="/billing" text="จัดการบิล" currentPath={pathname} />
         </nav>
     )
 }
