@@ -1,7 +1,7 @@
 'use client'
 
 import { Employee } from "@/interface/CreateEmployee";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
 
@@ -35,7 +35,7 @@ export default function CreateEmployeeForm({ handleCreate }: CreateEmployeeFormP
                     <select 
                     id="roles" 
                     className="input-primary"
-                    {...register('roles')}>
+                    {...register('role')}>
                         <option value="ROLE_USER">User</option>
                         <option value="ROLE_ADMIN">Admin</option>
                     </select>

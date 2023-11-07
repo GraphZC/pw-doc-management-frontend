@@ -7,9 +7,7 @@ export default function PanelLayout({
 }) {
     return (
         <div className="A4 landscape">
-            <section className="sheet p-2">
-                {children}
-            </section>
+            {children}
         </div>
     )
 }

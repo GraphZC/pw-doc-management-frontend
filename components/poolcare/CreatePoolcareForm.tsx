@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
 import PoolType from "@/enum/PoolType";
-import { Pool } from "@/interface/pool";
-import { Customer } from "@/interface/customer";
+import { Pool } from "@/interface/Pool";
+import { Customer } from "@/interface/Customer";
 
 interface CreatePoolcareFormProps {
     customer: Customer[];

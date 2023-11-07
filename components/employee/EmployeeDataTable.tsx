@@ -29,7 +29,7 @@ export default function EmployeeDataTable({data} : {data: Employee[]}){
         },
         {
             name: 'ตำแหน่ง',
-            selector: (row: Employee) => row.roles!,
+            selector: (row: Employee) => row.role!,
             sortable: true,
         },
         {
