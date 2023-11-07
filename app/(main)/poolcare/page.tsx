@@ -1,14 +1,26 @@
+'use client'
+
+import useAllPools from "@/api/pool/useAllPools";
+import CreateButton from "@/components/CreateButton";
 import PageHeader from "@/components/PageHeader";
-import A4Component from "@/components/poolcare/A4component";
-import { PreviewA4 } from "@diagoriente/react-preview-a4";
+import PoolCareDataTable from "@/components/poolcare/PoolCareDataTable";
 
 export default function PoolCare() {
+    const {isPending, error, data} = useAllPools();
+    
+    
+    if(isPending) return <div>Loading...</div>;
+console.log(data);
+    if(error) return <div>{error.message}</div>;
     return (
         <>
-            <PageHeader title="เพิ่มสระว่ายน้ำ" />
-            <div>
-                <A4Component />
+            <PageHeader title="ใบดูแลสระว่ายน้ำ" />
+            <div className="mb-5 flex w-full justify-end">
+                <CreateButton url="/poolcare/create" />
             </div>
+            <PoolCareDataTable data={data}/>
+
+            
         </>
     )
 }

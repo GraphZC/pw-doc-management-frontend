@@ -1,17 +1,19 @@
 'use client'
 
-import { Product } from "@/interface/Product";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
 import PoolType from "@/enum/PoolType";
+import { Pool } from "@/interface/pool";
+import { Customer } from "@/interface/customer";
 
 interface CreatePoolcareFormProps {
-    handleCreate: (data: Product) => void;
+    customer: Customer[];
+    handleCreate: (data: Pool) => void;
 }
 
-export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormProps) {
-    const {register, handleSubmit, reset, formState} = useForm();
+export default function CreatePoolcareForm({ customer, handleCreate }: CreatePoolcareFormProps) {
+    const {register, handleSubmit, reset, formState} = useForm<Pool>();
     useEffect(() => {
         if(formState.isSubmitSuccessful){
             reset();
@@ -20,6 +22,20 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
     return (
         <div>
             <form onSubmit={handleSubmit(handleCreate)}>
+
+                <div className="mb-2">
+                    <label htmlFor="customer">ลูกค้า</label>
+                    <select 
+                    id="customer"
+                    className="input-primary"
+                    required={true}
+                    {...register('customerId')}
+                    >
+                       {customer.map((customer) => (
+                        <option key={customer.id} value={customer.id}>{customer.name}</option>
+                       ))} 
+                    </select>
+                </div>
                 <div className="mb-2">
                     <label htmlFor="address">ที่อยู่</label>
                     <textarea
@@ -46,8 +62,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                         type="checkbox"
                         id="chemicalInclude"
                         className="ml-2 px-5 py-[10px] rounded-md cursor-pointer border-gray-300"
-                        required={true}
-                        {...register('chemicalInclude')}
+                        {...register('chemicalIncluded')}
                     />
                 </div>
                 <div className="mb-2">
@@ -56,7 +71,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                         id="poolType"
                         className="input-primary"
                         required={true}
-                        {...register('poolType')}
+                        {...register('type')}
                     >
                         <option value={PoolType.CHLORINE}>สระครอรีน</option>
                         <option value={PoolType.SALT}>สระเกลือ</option>
@@ -68,7 +83,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                         id="poolType"
                         className="input-primary"
                         required={true}
-                        {...register('poolType')}
+                        {...register('inService')}
                     >
                         <option value={PoolType.CHLORINE}>อยู่ในการดูแล</option>
                         <option value={PoolType.SALT}>ไม่ได้อยู่ในการดูแล</option>
@@ -81,8 +96,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                             type="checkbox"
                             id="monday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('monday')}
+                            {...register('serviceDay.monday')}
                         />
                     </div>
                     <div>
@@ -91,8 +105,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                             type="checkbox"
                             id="tuesday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('tuesday')}
+                            {...register('serviceDay.tuesday')}
                         />
                     </div>
                     <div>
@@ -101,18 +114,16 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                             type="checkbox"
                             id="wednesday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('wednesday')}
+                            {...register('serviceDay.wednesday')}
                         />
                     </div>
                     <div>
-                        <label htmlFor="monday">พฤหัส</label>
+                        <label htmlFor="thurday">พฤหัส</label>
                         <input 
                             type="checkbox"
                             id="thursday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('thursday')}
+                            {...register('serviceDay.thursday')}
                         />
                     </div>
                     <div>
@@ -121,18 +132,16 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                             type="checkbox"
                             id="friday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('friday')}
+                            {...register('serviceDay.friday')}
                         />
                     </div>
                     <div>
-                        <label htmlFor="monday">เสาร์</label>
+                        <label htmlFor="saturday">เสาร์</label>
                         <input 
                             type="checkbox"
                             id="saturday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('saturday')}
+                            {...register('serviceDay.saturday')}
                         />
                     </div>
                     <div>
@@ -141,8 +150,7 @@ export default function CreatePoolcareForm({ handleCreate }: CreatePoolcareFormP
                             type="checkbox"
                             id="sunday"
                             className="px-5 py-[10px] rounded-md cursor-pointer border-gray-300 flex"
-                            required={true}
-                            {...register('sunday')}
+                            {...register('serviceDay.sunday')}
                         />
                     </div>
                 </div>
