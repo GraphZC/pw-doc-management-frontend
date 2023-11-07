@@ -10,7 +10,7 @@ const getOneEmployee = async (id: string) => {
 
     const { data } = await axios.get<Employee>(`/employee/${id}`, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         }
     });
     return data;

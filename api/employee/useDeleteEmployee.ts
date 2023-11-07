@@ -11,7 +11,7 @@ const useDeleteEmployee = () =>{
         const session = await getSession();
         const {data} = await axios.delete<Employee>(`/employee/${id}`,{
             headers:{
-                // Authorization: `Bearer ${session?.accessToken}`,
+                Authorization: `Bearer ${session?.accessToken}`,
             }
         });
         return data;

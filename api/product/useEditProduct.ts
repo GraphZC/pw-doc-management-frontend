@@ -15,7 +15,7 @@ const editProduct = async(editData: Product) =>{
         unit: editData.unit,
     }, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
     });
     return data;

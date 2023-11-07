@@ -13,7 +13,7 @@ const editEmployee = async(editData: Employee) =>{
         roles: editData.roles,
     }, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
     });
     return data;

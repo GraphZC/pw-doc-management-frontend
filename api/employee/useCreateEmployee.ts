@@ -9,7 +9,7 @@ const createEmployee = async (newEmployee: Employee) => {
 
     const { data, status } = await axios.post<Employee>("/employee/", newEmployee, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         }
     });
 

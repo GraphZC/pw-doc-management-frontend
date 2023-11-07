@@ -11,7 +11,7 @@ const useDeleteCustomer = () =>{
         const session = await getSession();
         const {data} = await axios.delete<Customer>(`/customer/${id}`,{
             headers:{
-                // Authorization: `Bearer ${session?.accessToken}`,
+                Authorization: `Bearer ${session?.accessToken}`,
             }
         });
         return data;

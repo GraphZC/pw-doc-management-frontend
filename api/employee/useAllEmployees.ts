@@ -9,7 +9,7 @@ const getAllEmployees = async() =>{
 
     const{data} = await axios.get<Employee[]>("/employee/", {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
 
     });

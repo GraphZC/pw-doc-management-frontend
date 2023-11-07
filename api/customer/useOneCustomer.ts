@@ -10,7 +10,7 @@ const getOneCustomer = async (id: string) => {
 
     const { data } = await axios.get<Customer>(`/customer/${id}`, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         }
     });
     return data;

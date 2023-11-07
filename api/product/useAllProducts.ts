@@ -9,7 +9,7 @@ const getAllProducts = async() =>{
 
     const{data} = await axios.get<Product[]>("/product/", {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
 
     });

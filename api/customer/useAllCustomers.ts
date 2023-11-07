@@ -9,7 +9,7 @@ const getAllCustomers = async() =>{
 
     const{data} = await axios.get<Customer[]>("/customer/", {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
 
     });

@@ -14,7 +14,7 @@ const editCustomer = async(editData: Customer) =>{
         taxId: editData.taxId,
     }, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         },
     });
     return data;

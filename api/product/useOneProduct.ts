@@ -10,7 +10,7 @@ const getOneProduct = async (id: string) => {
 
     const { data } = await axios.get<Product>(`/product/${id}`, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         }
     });
     return data;

@@ -9,7 +9,7 @@ const createCustomer = async (newCustomer: Customer) => {
 
     const { data, status } = await axios.post<Customer>("/customer/", newCustomer, {
         headers: {
-            // Authorization: `Bearer ${session?.accessToken}`,
+            Authorization: `Bearer ${session?.accessToken}`,
         }
     });
 
