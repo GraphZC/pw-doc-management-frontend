@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@diagoriente/react-preview-a4": "^0.2.5",
     "@tanstack/react-query": "^5.0.5",
     "axios": "^1.5.1",
     "debug": "^4.3.4",
@@ -24,7 +23,8 @@
     "styled-components": "^6.1.0",
     "supports-color": "^8.1.1",
     "sweetalert2": "^11.7.32",
-    "sweetalert2-react-content": "^5.0.7"
+    "sweetalert2-react-content": "^5.0.7",
+    "zustand": "^4.4.6"
   },
   "devDependencies": {
     "@types/node": "^20",
