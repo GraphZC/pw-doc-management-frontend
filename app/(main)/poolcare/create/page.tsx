@@ -5,7 +5,7 @@ import useCreatePool from "@/api/pool/useCreatePool";
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import CreatePoolcareForm from "@/components/poolcare/CreatePoolcareForm";
-import { Pool } from "@/interface/pool";
+import { Pool } from "@/interface/Pool";
 import { toast } from "react-toastify";
 
 export default function CreatePoolCarePage() {

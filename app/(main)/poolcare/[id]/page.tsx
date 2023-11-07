@@ -4,7 +4,7 @@ import useOnePool from "@/api/pool/useOnePool";
 import useEditPool from "@/api/pool/useEditPool";
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
-import EditPoolCareForm from "@/components/pool/EditPoolCareForm";
+import EditPoolCareForm from "@/components/poolcare/EditPoolCareForm";
 import { Pool } from "@/interface/Pool";
 
 export default function ViewPoolPage({params} : {params: {id: string}}) {

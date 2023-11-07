@@ -15,7 +15,7 @@ export default function PoolCareDataTable( {data} : {data: Pool[]}){
         deleteMutation.mutate(id);
     }
     const handleEdit = (id: string) => {
-        router.push(`/poolcare/edit/${id}`);
+        router.push(`/poolcare/${id}`);
     }
 
     const columns : TableColumn<Pool>[] = [
