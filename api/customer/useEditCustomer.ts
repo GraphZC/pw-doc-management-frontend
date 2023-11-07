@@ -1,4 +1,4 @@
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import customerQueryKeys from "./customerQueryKeys";

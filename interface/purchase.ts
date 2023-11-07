@@ -1,14 +1,14 @@
-import { CustomerOrder } from "./customerOrder";
-import { Pool } from "./pool";
-import { Product } from "./product";
+import { CustomerOrder } from "./CustomerOrder";
+import { Pool } from "./Pool";
+import { Product } from "./Product";
 
 export interface Purchase{
     id?: string;
-    poolId: string;
+    poolId?: string;
     pool?: Pool;
-    productId: string;
+    productId?: string;
     product?: Product;
-    customerId: string;
+    customerId?: string;
     customerOrder?: CustomerOrder;
     quantity?: number;
     createdAt?: Date;

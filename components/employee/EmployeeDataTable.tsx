@@ -1,4 +1,4 @@
-import { Employee } from "@/interface/employee";
+import { Employee } from "@/interface/Employee";
 import { TableColumn } from "react-data-table-component";
 import DataTable from "../DataTable";
 import ActionButton from "../ActionButton";

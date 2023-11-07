@@ -1,6 +1,6 @@
 'use client'
 
-import { Employee } from "@/interface/createEmployee"
+import { Employee } from "@/interface/CreateEmployee"
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
 import { watch } from "fs";

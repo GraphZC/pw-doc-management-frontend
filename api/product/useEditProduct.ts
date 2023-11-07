@@ -1,4 +1,4 @@
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import productQueryKeys from "./productQueryKeys";

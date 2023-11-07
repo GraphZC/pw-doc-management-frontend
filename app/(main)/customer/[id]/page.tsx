@@ -5,7 +5,7 @@ import useEditCustomer from "@/api/customer/useEditCustomer";
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import EditCustomerForm from "@/components/customer/EditCustomerForm";
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 
 export default function ViewCustomerPage({params} : {params: {id: string}}) {
     const {isPending, error, data} = useOneCustomer(params.id);

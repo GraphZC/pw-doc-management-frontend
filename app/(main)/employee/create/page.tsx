@@ -4,7 +4,7 @@ import useCreateEmployee from "@/api/employee/useCreateEmployee"
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import CreateEmployeeForm from "@/components/employee/CreateEmployeeForm";
-import { Employee } from "@/interface/employee";
+import { Employee } from "@/interface/Employee";
 import { toast } from "react-toastify";
 
 export default function CreateEmployeePage() {

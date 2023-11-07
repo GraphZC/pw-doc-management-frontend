@@ -1,5 +1,5 @@
 import useDeleteProduct from "@/api/product/useDeleteProduct";
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 import { useRouter } from "next/navigation";
 import { TableColumn } from "react-data-table-component";
 import DataTable from "../DataTable";

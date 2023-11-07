@@ -1,4 +1,4 @@
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 import axios from "@/lib/axios.config";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { getSession } from "next-auth/react";

@@ -1,6 +1,6 @@
 'use client'
 
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";

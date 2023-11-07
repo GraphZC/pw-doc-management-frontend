@@ -1,9 +1,9 @@
 import PoolType from "@/enum/PoolType";
-import { Customer } from "./customer";
-import { ServiceDay } from "./serviceDay";
-import { Purchase } from "./purchase";
+import { Customer } from "./Customer";
+import { ServiceDay } from "./ServiceDay";
+import { Purchase } from "./Purchase";
 
-export interface Pool{
+export interface Pool {
     id?: string;
     customerId: string;
     customer?: Customer;

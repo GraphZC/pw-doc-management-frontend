@@ -1,4 +1,4 @@
-import { Employee } from "@/interface/employee";
+import { Employee } from "@/interface/Employee";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import employeeQueryKeys from "./employeeQueryKeys";

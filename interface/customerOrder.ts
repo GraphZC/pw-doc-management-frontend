@@ -1,7 +1,7 @@
-import { Customer } from "./customer";
-import { Employee } from "./employee";
-import { Invoice } from "./invoice";
-import { Purchase } from "./purchase";
+import { Customer } from "./Customer";
+import { Employee } from "./Employee";
+import { Invoice } from "./Invoice";
+import { Purchase } from "./Purchase";
 
 export interface CustomerOrder{
     id?: string;

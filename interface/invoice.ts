@@ -1,4 +1,4 @@
-import { CustomerOrder } from "./customerOrder";
+import { CustomerOrder } from "./CustomerOrder";
 
 export interface Invoice{
     id?: string;

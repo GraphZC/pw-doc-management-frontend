@@ -4,7 +4,7 @@ import useCreateProduct from "@/api/product/useCreateProduct"
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import CreateProductForm from "@/components/product/CreateProductForm";
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 import { toast } from "react-toastify";
 
 export default function CreateProductPage() {

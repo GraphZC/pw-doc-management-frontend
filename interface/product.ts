@@ -1,3 +1,5 @@
+import { Purchase } from "./Purchase";
+
 export interface Product{
     id?: string;
     code?: string;
@@ -5,4 +7,7 @@ export interface Product{
     description?: string;
     price?: number;
     unit?: string;
+    purchase: Purchase[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }

@@ -5,7 +5,7 @@ import useEditEmployee from "@/api/employee/useEditEmployee";
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import EditEmployeeForm from "@/components/employee/EditEmployeeForm";
-import { Employee } from "@/interface/employee";
+import { Employee } from "@/interface/Employee";
 
 export default function ViewEmployeePage({params} : {params: {id: string}}) {
     const {isPending, error, data} = useOneEmployee(params.id);

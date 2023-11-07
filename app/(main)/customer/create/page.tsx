@@ -4,7 +4,7 @@ import useCreateCustomer from "@/api/customer/useCreateCustomer"
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import CreateCustomerForm from "@/components/customer/CreateCustomerForm";
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 import { toast } from "react-toastify";
 
 export default function CreateCustomerPage() {

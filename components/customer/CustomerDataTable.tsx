@@ -1,4 +1,4 @@
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 import { TableColumn } from "react-data-table-component";
 import DataTable from "../DataTable";
 import ActionButton from "../ActionButton";

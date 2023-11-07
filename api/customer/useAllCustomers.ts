@@ -1,4 +1,4 @@
-import { Customer } from "@/interface/customer";
+import { Customer } from "@/interface/Customer";
 import { useQuery } from "@tanstack/react-query";
 import axios from "@/lib/axios.config";
 import { getSession } from "next-auth/react"

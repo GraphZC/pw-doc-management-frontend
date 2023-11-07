@@ -1,6 +1,6 @@
 'use client'
 
-import { Employee } from "@/interface/createEmployee";
+import { Employee } from "@/interface/CreateEmployee";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
@@ -21,16 +21,6 @@ export default function CreateEmployeeForm({ handleCreate }: CreateEmployeeFormP
         <div>
             <form onSubmit={handleSubmit(handleCreate)}>
                 <div className="mb-2">
-                    <label htmlFor="username">username</label>
-                    <input
-                    type="text"
-                    id="username"
-                    className="input-primary"
-                    required={true}
-                    {...register('username')}
-                    />
-                </div>
-                <div className="mb-2">
                     <label htmlFor="name">ชื่อ</label>
                     <input
                     type="text"
@@ -50,6 +40,17 @@ export default function CreateEmployeeForm({ handleCreate }: CreateEmployeeFormP
                         <option value="ROLE_ADMIN">Admin</option>
                     </select>
                 </div>
+                <div className="mb-2">
+                    <label htmlFor="username">ชื่อผู้ใช้</label>
+                    <input
+                    type="text"
+                    id="username"
+                    className="input-primary"
+                    required={true}
+                    {...register('username')}
+                    />
+                </div>
+
                 <div className="mb-2">
                     <label htmlFor="password">password</label>
                     <input

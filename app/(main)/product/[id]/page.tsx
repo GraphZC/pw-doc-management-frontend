@@ -5,7 +5,7 @@ import useEditProduct from "@/api/product/useEditProduct";
 import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import EditProductForm from "@/components/product/EditProductForm";
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 
 export default function ViewProductPage({params} : {params: {id: string}}) {
     const {isPending, error, data} = useOneProduct(params.id);

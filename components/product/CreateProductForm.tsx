@@ -1,6 +1,6 @@
 'use client'
 
-import { Product } from "@/interface/product";
+import { Product } from "@/interface/Product";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import SubmitButton from "../SubmitButton";
