@@ -48,8 +48,6 @@ export default function Navbar() {
     
     const pathname = usePathname();
 
-    console.log(session?.user)
-
     return (
         <nav className='bg-white h-screen border-r py-5 px-3 border-gray-200 sticky top-0 col-span-1 self-start'>
             <div className='font-bold text-center text-lg pb-3 flex justify-center gap-2'>

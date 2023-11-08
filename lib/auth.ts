@@ -50,7 +50,6 @@ export const authOptions: AuthOptions = {
 						return { ...token, ...res.data };
 					}
 				} catch (error) {
-					console.log("REFRESH TOKEN ERROR: ", error);
 					return { ...token, ...user };
 				}
 			}
