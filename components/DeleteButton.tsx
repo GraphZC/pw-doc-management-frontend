@@ -8,10 +8,11 @@ interface DeleteButtonProps {
 export default function DeleteButton({ id, handleDelete }:  DeleteButtonProps) {
     const deleteConfirm = (id: string) => {
         warningAlert({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
-            confirmButtonText: "Delete",
-            cancelButtonText: "Cancel",
+            // Generate delete message in th
+            title: "คุณต้องการลบ?",
+            text: "เมื่อลบแล้วจะไม่สามารถกู้คืนข้อมูลได้",
+            confirmButtonText: "ลบ",
+            cancelButtonText: "ยกเลิก",
             onConfirm: () => handleDelete(id),
         });
 

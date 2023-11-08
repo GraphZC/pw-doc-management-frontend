@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "@/lib/axios.config";
 import { getSession } from "next-auth/react";
 import employeeQueryKeys from "./employeeQueryKeys";
+import { toast } from "react-toastify";
 
 const useDeleteEmployee = () =>{
     const queryClient = useQueryClient();
@@ -23,12 +24,18 @@ const useDeleteEmployee = () =>{
             queryKey: employeeQueryKeys.all
            });
         },
-        onSuccess: () => queryClient.invalidateQueries({
-            queryKey: employeeQueryKeys.all
-        }),
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: employeeQueryKeys.all
+            });
+            toast.success("ลบข้อมูลพนักงานเรียบร้อยแล้ว");
+        },
         onSettled: () => queryClient.invalidateQueries({
             queryKey: employeeQueryKeys.all
         }),
+        onError: () => {
+            toast.error("เกิดข้อผิดพลาดในการลบข้อมูลพนักงาน");
+        }
     });
 };
 export default useDeleteEmployee;
