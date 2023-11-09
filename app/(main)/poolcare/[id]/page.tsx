@@ -6,12 +6,15 @@ import BackButton from "@/components/BackButton";
 import PageHeader from "@/components/PageHeader";
 import EditPoolCareForm from "@/components/poolcare/EditPoolCareForm";
 import { Pool } from "@/interface/Pool";
+import useAllCustomers from "@/api/customer/useAllCustomers";
 
 export default function ViewPoolPage({params} : {params: {id: string}}) {
     const {isPending, error, data} = useOnePool(params.id);
     const editPool = useEditPool();
 
-    if(isPending) return <div>Loading...</div>;
+    const {isPending: isPendingCustomer, error: errorCustomer, data: customers} = useAllCustomers();
+
+    if(isPending || isPendingCustomer) return <div>Loading...</div>;
 
     if(error) return <div>{error.message}</div>;
     const handleUpdate = (data: Pool) => {
@@ -23,8 +26,9 @@ export default function ViewPoolPage({params} : {params: {id: string}}) {
             <BackButton url="/pool" />
             <PageHeader title="แก้ไขสระว่ายน้ำ" />
             <EditPoolCareForm 
-            handleUpdate={handleUpdate} 
-            data={data}
+                customers={customers!}
+                handleUpdate={handleUpdate} 
+                data={data}
             />
         </div>
     );
