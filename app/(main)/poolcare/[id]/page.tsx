@@ -23,7 +23,7 @@ export default function ViewPoolPage({params} : {params: {id: string}}) {
 
     return (
         <div>
-            <BackButton url="/pool" />
+            <BackButton url="/poolcare" />
             <PageHeader title="แก้ไขสระว่ายน้ำ" />
             <EditPoolCareForm 
                 customers={customers!}
