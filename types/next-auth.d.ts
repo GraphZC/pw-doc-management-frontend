@@ -1,3 +1,4 @@
+import { EmployeeRole } from "@/enum/EmployeeRole";
 import { DefaultSession } from "next-auth";
 import { JWT } from "next-auth/jwt"
 
@@ -14,7 +15,7 @@ declare module 'next-auth' {
     id?: string;
     username?: string;
     name?: string;
-    role?: string;
+    role?: EmployeeRole;
   }
 }
 

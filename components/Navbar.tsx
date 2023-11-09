@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import Profile from './Profile';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Logo from 'public/imgs/poolworld-logo.png';
+import { EmployeeRole } from '@/enum/EmployeeRole';
 
 interface NavbarItemProps {
     href: string;
@@ -27,8 +28,24 @@ function NavbarItem({ href, text, currentPath } : NavbarItemProps) {
     )
 }
 
+function LogoutButton() {
+    return (
+        <div className="w-full">
+            <button
+                className="block w-full text-left py-2 px-4 mb-2 rounded-lg text-white hover:bg-red-500 bg-red-600"
+                onClick={() => {
+                    signOut();
+                }}
+            >
+                ออกจากระบบ
+            </button>
+        </div>
+    )
+}
+
 export default function Navbar() {
     const { data: session, status } = useSession();
+    
     const pathname = usePathname();
 
     return (
@@ -47,12 +64,21 @@ export default function Navbar() {
             <div className='mb-3'>
                 <Profile name={session?.user?.name} role={session?.user?.role} />
             </div>
-            <NavbarItem href="/dashboard" text="Dashboard" currentPath={pathname} />
-            <NavbarItem href="/employee" text="พนักงาน" currentPath={pathname} />
-            <NavbarItem href="/customer" text="ลูกค้า" currentPath={pathname} />
-            <NavbarItem href="/product" text="สินค้า" currentPath={pathname} />
-            <NavbarItem href="/poolcare" text="ใบดูแลสระ" currentPath={pathname} />
-            <NavbarItem href="/billing" text="จัดการบิล" currentPath={pathname} />
+            <div className='flex flex-col justify-between'>
+                <div>
+                    <NavbarItem href="/dashboard" text="แดชบอร์ด" currentPath={pathname} />
+                    { session?.user?.role === EmployeeRole.ADMIN && <NavbarItem href="/employee" text="พนักงาน" currentPath={pathname} />}
+                    
+                    <NavbarItem href="/customer" text="ลูกค้า" currentPath={pathname} />
+                    <NavbarItem href="/product" text="สินค้า" currentPath={pathname} />
+                    <NavbarItem href="/poolcare" text="ใบดูแลสระ" currentPath={pathname} />
+                    <NavbarItem href="/billing" text="จัดการบิล" currentPath={pathname} />
+                </div>
+                <div>
+                    <LogoutButton />
+                </div>
+            </div>
+
         </nav>
     )
 }

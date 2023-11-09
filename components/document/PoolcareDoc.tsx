@@ -52,7 +52,6 @@ export default function PoolCareDoc({ month, year, data }: PoolCareDocProps) {
 
     const isTheSameDay = (pool: Pool, date: number) => {
         const day = moment(new Date(year, month, date)).locale("En").format("dddd").toLowerCase();
-        console.log(day, getServiceDayEng(pool), getServiceDayEng(pool))
         return getServiceDayEng(pool).includes(day);
         
     }

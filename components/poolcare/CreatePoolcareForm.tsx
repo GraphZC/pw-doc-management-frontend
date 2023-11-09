@@ -78,18 +78,17 @@ export default function CreatePoolcareForm({ customer, handleCreate }: CreatePoo
                     </select>
                 </div>
                 <div className="mb-2">
-                    <label htmlFor="poolType">สถานะ</label>
-                    <select
-                        id="poolType"
-                        className="input-primary"
-                        required={true}
+                    <label htmlFor="inService">อยู่ในการดูแล</label>
+                    {/* Checkbox */}
+                    <input
+                        type="checkbox"
+                        id="inService"
+                        className="ml-2 px-5 py-[10px] rounded-md cursor-pointer border-gray-300"
                         {...register('inService')}
-                    >
-                        <option value={PoolType.CHLORINE}>อยู่ในการดูแล</option>
-                        <option value={PoolType.SALT}>ไม่ได้อยู่ในการดูแล</option>
-                    </select>
+                    />
                 </div>
-                <div className="mt-6 mb-2 mx-10 flex justify-between text-center">
+                <div className="mb-2 mt-4">วันที่ดูแล</div>
+                <div className="mb-2 flex gap-7 text-center">
                     <div>
                         <label htmlFor="monday">จันทร์</label>
                         <input 
@@ -118,7 +117,7 @@ export default function CreatePoolcareForm({ customer, handleCreate }: CreatePoo
                         />
                     </div>
                     <div>
-                        <label htmlFor="thurday">พฤหัส</label>
+                        <label htmlFor="thursday">พฤหัส</label>
                         <input 
                             type="checkbox"
                             id="thursday"

@@ -5,6 +5,7 @@ import ActionButton from "../ActionButton";
 import useDeleteCustomer from "@/api/customer/useDeleteCustomer";
 import { useRouter } from "next/navigation";
 import useDeleteEmployee from "@/api/employee/useDeleteEmployee";
+import EmployeeStatusBadge from "./EmployeeStatusBadge";
 
 export default function EmployeeDataTable({data} : {data: Employee[]}){
     const deleteMutation = useDeleteEmployee();
@@ -30,6 +31,10 @@ export default function EmployeeDataTable({data} : {data: Employee[]}){
         {
             name: 'ตำแหน่ง',
             selector: (row: Employee) => row.role!,
+            cell: (row: Employee) => <EmployeeStatusBadge status={row.role!} />,
+            sortFunction: (a: Employee , b: Employee) => {
+                return a < b ? -1 : 1;
+            },
             sortable: true,
         },
         {

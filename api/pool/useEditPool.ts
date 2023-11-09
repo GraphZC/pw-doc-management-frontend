@@ -7,11 +7,17 @@ import { getSession } from "next-auth/react";
 
 const editPool = async(editData: Pool) =>{
     const session = await getSession();
-    const {data} = await axios.put<Pool>(`/pool
-/${editData.id}`, {
-        password: editData.password,
-        name: editData.name,
-        roles: editData.roles,
+    editData!.serviceDay!.monday = editData!.serviceDay!.monday ? true : false;
+    editData!.serviceDay!.tuesday = editData!.serviceDay!.tuesday ? true : false;
+    editData!.serviceDay!.wednesday = editData!.serviceDay!.wednesday ? true : false;
+    editData!.serviceDay!.thursday = editData!.serviceDay!.thursday ? true : false;
+    editData!.serviceDay!.friday = editData!.serviceDay!.friday ? true : false;
+    editData!.serviceDay!.saturday = editData!.serviceDay!.saturday ? true : false;
+    editData!.serviceDay!.sunday = editData!.serviceDay!.sunday ? true : false;
+
+    const {data} = await axios.put<Pool>(`/pool/${editData.id}`, {
+        ...editData,
+        id: undefined,
     }, {
         headers: {
             Authorization: `Bearer ${session?.accessToken}`,

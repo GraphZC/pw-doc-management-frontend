@@ -11,7 +11,6 @@ export default function CreateEmployeePage() {
     const createMutation = useCreateEmployee();
     const handleCreate = (data: Employee) => {
         createMutation.mutate(data);
-        toast.success("Create employee successfully");
     }
     return (
         <div>

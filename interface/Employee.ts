@@ -1,3 +1,4 @@
+import { EmployeeRole } from "@/enum/EmployeeRole";
 import { CustomerOrder } from "./CustomerOrder";
 
 export interface Employee{

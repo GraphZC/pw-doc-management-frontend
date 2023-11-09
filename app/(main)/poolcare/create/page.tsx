@@ -14,7 +14,6 @@ export default function CreatePoolCarePage() {
     const handleCreate = (data: Pool) => {
         createMutation.mutate(data)
         toast.success("Create poolcare successfully");
-        console.log(data);
     }
 
     const {isPending: isPendingCustomer, error: errorCustomer, data: dataCustomer} = useAllCustomer();
