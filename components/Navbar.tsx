@@ -66,7 +66,7 @@ export default function Navbar() {
             </div>
             <div className='flex flex-col justify-between'>
                 <div>
-                    <NavbarItem href="/dashboard" text="Dashboard" currentPath={pathname} />
+                    <NavbarItem href="/dashboard" text="แดชบอร์ด" currentPath={pathname} />
                     { session?.user?.role === EmployeeRole.ADMIN && <NavbarItem href="/employee" text="พนักงาน" currentPath={pathname} />}
                     
                     <NavbarItem href="/customer" text="ลูกค้า" currentPath={pathname} />
