@@ -5,9 +5,17 @@ interface OrderTableProps {
 }
 export default function OrderTable({ customerOrder }: OrderTableProps) {
     let totalPrice = 0;
-    customerOrder?.purchase?.map((purchase) => {
-        totalPrice += purchase.product!.price! * purchase.quantity!;
-    })
+
+    if (customerOrder.purchase?.length !== 0 && customerOrder.purchase![0].poolId === null) {
+        customerOrder?.purchase?.map((purchase) => {
+            totalPrice += purchase.product!.price! * purchase.quantity!;
+        })
+    } else {
+        customerOrder?.purchase?.map((purchase) => {
+            totalPrice += purchase.pool!.price! * purchase.quantity!;
+        })
+        
+    }
 
     const netPrice = totalPrice + (customerOrder?.invoice?.vatIncluded ? totalPrice * 0.07 : 0);
     
@@ -34,7 +42,7 @@ export default function OrderTable({ customerOrder }: OrderTableProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        { customerOrder?.purchase?.map((purchase, index) => (
+                        { customerOrder.purchase?.length !== 0 && customerOrder.purchase![0].poolId === null ? customerOrder?.purchase?.map((purchase, index) => (
                             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={purchase.id}>
                                 <td className="px-6 py-4 text-center">
                                     {index + 1}
@@ -43,7 +51,7 @@ export default function OrderTable({ customerOrder }: OrderTableProps) {
                                     {purchase.product!.name}
                                 </td>
                                 <td className="px-6 py-4 text-center">
-                                    {purchase.quantity}
+                                    {purchase.quantity} {purchase.product!.unit}
                                 </td>
                                 <td className="px-6 py-4 text-right">
                                     {purchase.product!.price?.toFixed(2)}
@@ -52,7 +60,26 @@ export default function OrderTable({ customerOrder }: OrderTableProps) {
                                     {(purchase.product!.price! * purchase!.quantity!).toFixed(2)}
                                 </td>
                             </tr>
-                        ))}
+                        )) : (
+                            customerOrder?.purchase?.map((purchase, index) => (
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={purchase.id}>
+                                    <td className="px-6 py-4 text-center">
+                                        {index + 1}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        งานดูแลสระบ้านคุณ {customerOrder.customer?.name}
+                                    </td>
+                                    <td className="px-6 py-4 text-center">
+                                        {purchase.quantity} เดือน
+                                    </td>
+                                    <td className="px-6 py-4 text-right">
+                                        {purchase.pool!.price?.toFixed(2)}
+                                    </td>
+                                    <td className="px-6 py-4 text-right">
+                                        {(purchase.pool!.price! * purchase!.quantity!).toFixed(2)}
+                                    </td>
+                                </tr>
+                        )))}
                         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th className="px-6 py-4 text-right" colSpan={4}>
                                     ราคารวม
