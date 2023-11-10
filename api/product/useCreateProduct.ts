@@ -6,7 +6,7 @@ import productQueryKeys from "./productQueryKeys";
 
 const createProduct = async (newProduct: Product) => {
     const session = await getSession();
-
+    newProduct.price = Number(newProduct.price);
     const { data, status } = await axios.post<Product>("/product/", newProduct, {
         headers: {
             Authorization: `Bearer ${session?.accessToken}`,
