@@ -30,7 +30,9 @@ export default function PoolCare() {
                     setMonth(parseInt(month))
                     setYear(parseInt(year))
                 }}>
+                    <option hidden>เลือกเดือน</option>
                     {monthArr.map((month, index) => {
+                        
                         const monthName = new Date(d.getFullYear(), d.getMonth() + month).toLocaleString('th-TH', {month: 'long'})
                         const monthNumber = new Date(d.getFullYear(), d.getMonth() + month).getMonth()
                         const year = new Date(d.getFullYear(), d.getMonth() + month).getFullYear()

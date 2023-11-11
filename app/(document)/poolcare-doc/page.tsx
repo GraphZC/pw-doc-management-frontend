@@ -2,6 +2,7 @@
 
 import PoolCareDoc from "@/components/document/PoolcareDoc";
 import usePoolCareDoc from "@/store/usePoolCareDoc";
+import '../a4.css';
 
 export default function PoolCareDocPage() {
 
