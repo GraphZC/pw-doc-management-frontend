@@ -42,9 +42,9 @@ export default function PoolCareDataTable( {data} : {data: Pool[]}){
             sortable: true
         },
         {
-            name: 'ประเภทสระ',
-            selector: row => row.type!,
-            sortable: true,
+            name: 'สถานะการให้บริการ',
+            cell: row => row.inService ? <div className="text-green-500">กำลังให้บริการ</div> : <div className="text-red-400">หยุดการให้บริการ</div>,
+            sortable: true, 
         },
         {   
             name: '',
